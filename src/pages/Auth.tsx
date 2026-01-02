@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { useAuth } from '@/contexts/AuthContext';
 import { useToast } from '@/hooks/use-toast';
+import Threads from '@/components/Threads';
 
 const Auth: React.FC = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -95,14 +96,21 @@ const Auth: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 cyber-grid">
-      {/* Background glow effect */}
+    <div className="min-h-screen flex items-center justify-center p-4 relative">
+      {/* Animated Threads Background */}
       <div className="fixed inset-0 pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[100px]" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-primary/5 rounded-full blur-[100px]" />
+        <Threads
+          amplitude={1}
+          distance={0}
+          enableMouseInteraction={true}
+          color={[0.3, 0.6, 1]}
+        />
       </div>
+      
+      {/* Dark overlay for better readability */}
+      <div className="fixed inset-0 bg-background/60 pointer-events-none" />
 
-      <div className="w-full max-w-md animate-slide-up">
+      <div className="w-full max-w-md animate-slide-up relative z-10">
         {/* Logo */}
         <div className="text-center mb-8">
           <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary/10 border border-primary/20 mb-4 glow-effect">
