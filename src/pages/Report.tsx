@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { 
-  ArrowLeft, 
-  Link2, 
+import {
+  ArrowLeft,
+  Link2,
   MessageSquare,
   Globe,
   Send,
@@ -25,7 +25,7 @@ const Report: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
-  
+
   const navigate = useNavigate();
   const { toast } = useToast();
 
@@ -58,7 +58,7 @@ const Report: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     const newErrors: Record<string, string> = {};
 
     if (!linkUrl && !message) {
@@ -85,7 +85,7 @@ const Report: React.FC = () => {
 
     toast({
       title: "Report Submitted",
-      description: "Thank you for helping keep the community safe.",
+      description: "Thank you for keep helping the community safe.",
     });
   };
 
@@ -166,11 +166,10 @@ const Report: React.FC = () => {
                     key={s.id}
                     type="button"
                     onClick={() => setSource(s.id)}
-                    className={`flex items-center gap-2 px-4 py-2.5 rounded-lg border transition-all duration-200 ${
-                      source === s.id
+                    className={`flex items-center gap-2 px-4 py-2.5 rounded-lg border transition-all duration-200 ${source === s.id
                         ? 'bg-primary text-primary-foreground border-primary'
                         : 'bg-secondary border-border hover:border-primary/50'
-                    }`}
+                      }`}
                   >
                     <s.icon className="w-4 h-4" />
                     <span className="text-sm font-medium">{s.label}</span>
@@ -224,10 +223,10 @@ const Report: React.FC = () => {
             )}
 
             {/* Submit Button */}
-            <Button 
-              type="submit" 
-              variant="glow" 
-              size="lg" 
+            <Button
+              type="submit"
+              variant="glow"
+              size="lg"
               className="w-full"
               disabled={isSubmitting}
             >
@@ -253,8 +252,8 @@ const Report: React.FC = () => {
             { title: 'Check the Domain', desc: 'Look for misspellings or unusual domain names.' },
             { title: 'Report Everything', desc: 'When in doubt, report. Better safe than sorry.' },
           ].map((tip, index) => (
-            <div 
-              key={index} 
+            <div
+              key={index}
               className="glass-card p-5 animate-slide-up"
               style={{ animationDelay: `${(index + 1) * 100}ms` }}
             >

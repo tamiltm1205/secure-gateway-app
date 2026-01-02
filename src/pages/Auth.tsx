@@ -48,14 +48,14 @@ const Auth: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!validateForm()) return;
 
     setIsLoading(true);
 
     try {
       let success: boolean;
-      
+
       if (isLogin) {
         success = await login(formData.email, formData.password);
       } else {
@@ -64,7 +64,7 @@ const Auth: React.FC = () => {
 
       if (success) {
         toast({
-          title: isLogin ? "Welcome back!" : "Account created!",
+          title: isLogin ? "Welcome!" : "Account created!",
           description: isLogin ? "You've successfully logged in." : "Your account has been created successfully.",
         });
         navigate('/dashboard');
@@ -108,7 +108,7 @@ const Auth: React.FC = () => {
           <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary/10 border border-primary/20 mb-4 glow-effect">
             <Shield className="w-8 h-8 text-primary" />
           </div>
-          <h1 className="text-3xl font-bold gradient-text">CyberShield</h1>
+          <h1 className="text-3xl font-bold gradient-text">TruthLens</h1>
           <p className="text-muted-foreground mt-2">Protect against fake content & malicious links</p>
         </div>
 
@@ -118,17 +118,15 @@ const Auth: React.FC = () => {
           <div className="flex bg-secondary rounded-lg p-1 mb-8">
             <button
               onClick={() => setIsLogin(true)}
-              className={`flex-1 py-2.5 text-sm font-medium rounded-md transition-all duration-200 ${
-                isLogin ? 'bg-primary text-primary-foreground' : 'text-muted-foreground hover:text-foreground'
-              }`}
+              className={`flex-1 py-2.5 text-sm font-medium rounded-md transition-all duration-200 ${isLogin ? 'bg-primary text-primary-foreground' : 'text-muted-foreground hover:text-foreground'
+                }`}
             >
               Login
             </button>
             <button
               onClick={() => setIsLogin(false)}
-              className={`flex-1 py-2.5 text-sm font-medium rounded-md transition-all duration-200 ${
-                !isLogin ? 'bg-primary text-primary-foreground' : 'text-muted-foreground hover:text-foreground'
-              }`}
+              className={`flex-1 py-2.5 text-sm font-medium rounded-md transition-all duration-200 ${!isLogin ? 'bg-primary text-primary-foreground' : 'text-muted-foreground hover:text-foreground'
+                }`}
             >
               Sign Up
             </button>
@@ -167,7 +165,7 @@ const Auth: React.FC = () => {
                   <Input
                     type="text"
                     name="username"
-                    placeholder="johndoe"
+                    placeholder="valid username"
                     value={formData.username}
                     onChange={handleInputChange}
                     className="pl-11"
@@ -208,10 +206,10 @@ const Auth: React.FC = () => {
             </div>
 
             {/* Submit Button */}
-            <Button 
-              type="submit" 
-              variant="glow" 
-              size="lg" 
+            <Button
+              type="submit"
+              variant="glow"
+              size="lg"
               className="w-full"
               disabled={isLoading}
             >

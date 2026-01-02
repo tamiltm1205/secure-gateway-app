@@ -17,19 +17,19 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [user, setUser] = useState<User | null>(() => {
-    const saved = localStorage.getItem('cybershield_user');
+    const saved = localStorage.getItem('truthlens_user');
     return saved ? JSON.parse(saved) : null;
   });
 
   const login = async (email: string, password: string): Promise<boolean> => {
     // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 1000));
-    
+
     // For demo purposes, accept any valid-looking credentials
     if (email && password.length >= 6) {
       const userData = { email, username: email.split('@')[0] };
       setUser(userData);
-      localStorage.setItem('cybershield_user', JSON.stringify(userData));
+      localStorage.setItem('truthlens_user', JSON.stringify(userData));
       return true;
     }
     return false;
@@ -38,11 +38,11 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   const signup = async (email: string, username: string, password: string): Promise<boolean> => {
     // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 1000));
-    
+
     if (email && username && password.length >= 6) {
       const userData = { email, username };
       setUser(userData);
-      localStorage.setItem('cybershield_user', JSON.stringify(userData));
+      localStorage.setItem('truthlens_user', JSON.stringify(userData));
       return true;
     }
     return false;
@@ -50,7 +50,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
 
   const logout = () => {
     setUser(null);
-    localStorage.removeItem('cybershield_user');
+    localStorage.removeItem('truthlens_user');
   };
 
   return (
