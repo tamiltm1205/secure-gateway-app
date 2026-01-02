@@ -167,8 +167,8 @@ const Report: React.FC = () => {
                     type="button"
                     onClick={() => setSource(s.id)}
                     className={`flex items-center gap-2 px-4 py-2.5 rounded-lg border transition-all duration-200 ${source === s.id
-                        ? 'bg-primary text-primary-foreground border-primary'
-                        : 'bg-secondary border-border hover:border-primary/50'
+                      ? 'bg-primary text-primary-foreground border-primary'
+                      : 'bg-secondary border-border hover:border-primary/50'
                       }`}
                   >
                     <s.icon className="w-4 h-4" />

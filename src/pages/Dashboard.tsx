@@ -1,11 +1,11 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { 
-  Shield, 
-  Upload, 
-  Link2, 
-  LogOut, 
-  Image as ImageIcon, 
+import {
+  Shield,
+  Upload,
+  Link2,
+  LogOut,
+  Image as ImageIcon,
   AlertTriangle,
   CheckCircle,
   TrendingUp,
@@ -67,7 +67,7 @@ const Dashboard: React.FC = () => {
             <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center">
               <Shield className="w-5 h-5 text-primary" />
             </div>
-            <span className="font-bold text-xl gradient-text">CyberShield</span>
+            <span className="font-bold text-xl gradient-text">TruthLens</span>
           </div>
 
           <div className="flex items-center gap-4">
@@ -87,7 +87,7 @@ const Dashboard: React.FC = () => {
         {/* Welcome Section */}
         <div className="mb-10">
           <h1 className="text-3xl font-bold mb-2">
-            Welcome back, <span className="gradient-text">{user?.username}</span>
+            Welcome, <span className="gradient-text">{user?.username}</span>
           </h1>
           <p className="text-muted-foreground">
             Protect yourself from fake content and malicious links.
@@ -97,8 +97,8 @@ const Dashboard: React.FC = () => {
         {/* Stats Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
           {stats.map((stat, index) => (
-            <div 
-              key={index} 
+            <div
+              key={index}
               className="glass-card p-5 flex flex-col items-center text-center animate-slide-up"
               style={{ animationDelay: `${index * 100}ms` }}
             >
@@ -112,7 +112,7 @@ const Dashboard: React.FC = () => {
         {/* Feature Cards */}
         <div className="grid md:grid-cols-2 gap-6 mb-10">
           {features.map((feature, index) => (
-            <div 
+            <div
               key={index}
               className="glass-card p-6 group hover:border-primary/50 transition-all duration-300 animate-slide-up"
               style={{ animationDelay: `${(index + 4) * 100}ms` }}
